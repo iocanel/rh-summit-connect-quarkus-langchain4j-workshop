@@ -3,7 +3,7 @@
 ## Software requirements
 
 - JDK 21.0 or later - Download it from [Adoptium](https://adoptium.net/){target="_blank"}
-- A key for OpenAI API (provided by the workshop organizer)
+- A URL to the AI model (provided by the workshop organizer)
 - Podman or Docker - See [Podman installation](https://podman.io/getting-started/installation){target="_blank"} or [Docker installation](https://docs.docker.com/get-docker/){target="_blank"}
   - If you use Podman, Podman Desktop provides a great user experience to manage your containers: [Podman Desktop](https://podman-desktop.io/docs/installation){target="_blank"}
 - Git (not mandatory) - See [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){target="_blank"}
@@ -15,23 +15,17 @@
 
 ## AI Model Requirements
 
-You will need an OpenAI API key to complete this workshop. If your instructor has provided one for you to use, use it! [Click here](https://platform.openai.com/docs/quickstart/create-and-export-an-api-key){target="_blank"} to create one if you do not have one. 
+This workshop is using the [Mistral 7b](https://mistral.ai/news/announcing-mistral-7b) model hosted on [OpenShift AI](https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai).
+Your instructor will provide your with a URL to access the model.
 
-??? info "Did your instructor not provide a key?"
-    You should receive $5 in free OpenAI trial credits if this is the first time you are creating an OpenAI developer account. If you already have an account and have used your free trial credits, then you will need to fund your account.
-
-    Don't worry, this workshop will not cost much. You can [check out the OpenAI pricing calculator](https://openai.com/api/pricing/){target="_blank"}.
-
-    The cost for going through this workshop should not exceed $0.25 (~&euro;0.22).
-
-Once you have an OpenAI API key, make sure you have set it as an environment variable, eg:
+Once you have the URL, make sure you have set it as an environment variable:
 
 ```bash
-export OPENAI_API_KEY=<your-key>
+export MISTRAL_URL=<model url>
 ```
 
 ```powershell
-$Env:OPENAI_API_KEY = <your-key>
+$Env:MISTRAL_URL=<model url>
 ```
 
 ## Good to know

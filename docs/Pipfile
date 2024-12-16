@@ -11,6 +11,7 @@ mkdocs-macros-plugin = "*"
 mkdocs-build-plantuml-plugin = "*"
 mkdocs-video= "*"
 mike = "*"
+plantuml = "*"
 
 [dev-packages]
 
