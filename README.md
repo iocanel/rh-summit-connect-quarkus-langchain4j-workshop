@@ -1,4 +1,4 @@
-# quarkus-langchain4j-workshop
+# Red Hat OpenShift Connect Zurich Workshop
 
 A workshop to learn how to build AI-Infused applications with Quarkus and LangChain4j.
 
