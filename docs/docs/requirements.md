@@ -21,11 +21,11 @@ Your instructor will provide your with a URL to access the model.
 Once you have the URL, make sure you have set it as an environment variable:
 
 ```bash
-export MISTRAL_URL=<model url>
+export LLAMA_URL=<model url>
 ```
 
 ```powershell
-$Env:MISTRAL_URL=<model url>
+$Env:LLAMA_URL=<model url>
 ```
 
 ## Good to know
