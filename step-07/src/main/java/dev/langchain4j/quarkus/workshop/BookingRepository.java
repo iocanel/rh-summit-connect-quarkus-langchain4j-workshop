@@ -16,9 +16,9 @@ import dev.langchain4j.agent.tool.Tool;
 public class BookingRepository implements PanacheRepository<Booking> {
 
 
-    @Tool("Cancel a booking")
+    @Tool("Cancel a booking and return cancellation status")
     @Transactional
-    public void cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
+    public boolean cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
         var booking = getBookingDetails(bookingId, customerFirstName, customerLastName);
         // too late to cancel
         if (booking.dateFrom.minusDays(11).isBefore(LocalDate.now())) {
@@ -29,15 +29,16 @@ public class BookingRepository implements PanacheRepository<Booking> {
             throw new BookingCannotBeCancelledException(bookingId, "booking period is less than four days");
         }
         delete(booking);
+        return true;
     }
 
     @Tool("List booking for a customer")
-    public List<Booking> listBookingsForCustomer(String customerName, String customerSurname) {
-        var found = Customer.findByFirstAndLastName(customerName, customerSurname);
+    public List<Booking> listBookingsForCustomer(String customerFirstName, String customerLastName) {
+        var found = Customer.findByFirstAndLastName(customerFirstName, customerLastName);
 
         return found
           .map(customer -> list("customer", customer))
-          .orElseThrow(() -> new CustomerNotFoundException(customerName, customerSurname));
+          .orElseThrow(() -> new CustomerNotFoundException(customerFirstName, customerLastName));
     }
 
 

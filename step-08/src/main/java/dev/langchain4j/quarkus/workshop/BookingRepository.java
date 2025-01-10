@@ -16,9 +16,9 @@ import static dev.langchain4j.quarkus.workshop.Exceptions.CustomerNotFoundExcept
 public class BookingRepository implements PanacheRepository<Booking> {
 
 
-    @Tool("Cancel a booking")
+    @Tool("Cancel a booking and return cancellation status")
     @Transactional
-    public void cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
+    public boolean cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
         Booking booking = getBookingDetails(bookingId, customerFirstName, customerLastName);
         // too late to cancel
         if (booking.dateFrom.minusDays(11).isBefore(LocalDate.now())) {
@@ -29,13 +29,14 @@ public class BookingRepository implements PanacheRepository<Booking> {
             throw new BookingCannotBeCancelledException(bookingId);
         }
         delete(booking);
+        return true;
     }
 
     @Tool("List booking for a customer")
-    public List<Booking> listBookingsForCustomer(String customerName, String customerSurname) {
-        var found = Customer.find("firstName = ?1 and lastName = ?2", customerName, customerSurname).singleResultOptional();
+    public List<Booking> listBookingsForCustomer(String customerFirstName, String customerLastName) {
+        var found = Customer.find("firstName = ?1 and lastName = ?2", customerFirstName, customerLastName).singleResultOptional();
         if (found.isEmpty()) {
-            throw new CustomerNotFoundException(customerName, customerSurname);
+            throw new CustomerNotFoundException(customerFirstName, customerLastName);
         }
         return list("customer", found.get());
     }
