@@ -122,6 +122,11 @@ Also note that we have added a new placeholder `{current_date}` in the system pr
     It uses the [Qute](https://quarkus.io/guides/qute) template engine underneath.
     This is a powerful feature to allow you to have advanced template logic.
 
+!!! note "System message and tools"
+    Some models (e.g. Granite 3.1) do not work well when using tools and verbose system messages.
+    So, in this step with trim it down. If you are still not seeing the tool getting called, 
+    then please further trim the system message.
+    
 !!! bug "Tools and streaming responses"
     There is a known limitation currently when using (blocking) tools with streaming responses.
     Replace `Multi<String>` with `String` in the AI service method signature to avoid this issue and change the call in the `dev.langchain4j.quarkus.workshop.CustomerSupportAgentWebSocket` accordingly:

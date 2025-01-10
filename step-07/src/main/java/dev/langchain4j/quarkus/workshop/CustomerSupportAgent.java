@@ -11,7 +11,7 @@ import io.quarkiverse.langchain4j.ToolBox;
 public interface CustomerSupportAgent {
 
     @SystemMessage("""
-            You are a customer support agent of a car rental company 'Miles of Smiles' with tools that access the bookings database.
+            You are a customer support agent of a car rental company 'Miles of Smiles'.
 
             Today is {current_date}.
             """)
