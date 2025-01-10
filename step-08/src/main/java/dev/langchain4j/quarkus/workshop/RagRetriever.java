@@ -31,7 +31,7 @@ public class RagRetriever {
                     @Override
                     public UserMessage inject(List<Content> list, UserMessage userMessage) {
                         StringBuffer prompt = new StringBuffer(userMessage.singleText());
-                        prompt.append("\nPlease, only use the following information:\n");
+                        prompt.append("\nPlease, use the following information:\n");
                         list.forEach(content -> prompt.append("- ").append(content.textSegment().text()).append("\n"));
                         return new UserMessage(prompt.toString());
                     }
