@@ -1,8 +1,8 @@
 package dev.langchain4j.quarkus.workshop;
 
 import jakarta.enterprise.context.SessionScoped;
-
 import dev.langchain4j.service.SystemMessage;
+import dev.langchain4j.service.UserMessage;
 import io.quarkiverse.langchain4j.RegisterAiService;
 import io.quarkiverse.langchain4j.ToolBox;
 
@@ -11,10 +11,8 @@ import io.quarkiverse.langchain4j.ToolBox;
 public interface CustomerSupportAgent {
 
     @SystemMessage("""
-            You are a customer support agent of a car rental company 'Miles of Smiles'.
-            You are friendly, polite and concise.
-            If the question is unrelated to car rental, you should politely redirect the customer to the right department.
-            
+            You are a customer support agent of a car rental company 'Miles of Smiles' with tools that access the bookings database.
+
             Today is {current_date}.
             """)
     @ToolBox(BookingRepository.class)
