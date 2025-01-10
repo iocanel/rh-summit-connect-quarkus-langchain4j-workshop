@@ -798,29 +798,26 @@ We use an arbitrary threshold of 0.7 to determine whether the user message is li
 <p><mark>Let’s now edit the <code>dev.langchain4j.quarkus.workshop.CustomerSupportAgent</code> AI service to use the guardrail:</mark></p>
 <div class="highlight"><span class="filename">CustomerSupportAgent.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">dev.langchain4j.quarkus.workshop</span><span class="p">;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.SessionScoped</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dev.langchain4j.service.SystemMessage</span><span class="p">;</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.quarkiverse.langchain4j.RegisterAiService</span><span class="p">;</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.quarkiverse.langchain4j.ToolBox</span><span class="p">;</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="hll"><span class="kn">import</span><span class="w"> </span><span class="nn">io.quarkiverse.langchain4j.guardrails.InputGuardrails</span><span class="p">;</span>
 </span><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nd">@SessionScoped</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nd">@ApplicationScoped</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nd">@RegisterAiService</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CustomerSupportAgent</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nd">@SystemMessage</span><span class="p">(</span><span class="s">"""</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="s">            You are a customer support agent of a car rental company 'Miles of Smiles'.</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s">            You are friendly, polite and concise.</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s">            If the question is unrelated to car rental, you should politely redirect the customer to the right department.</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="s">            Today is {current_date}.</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="s">            """</span><span class="p">)</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="hll"><span class="w">    </span><span class="nd">@InputGuardrails</span><span class="p">(</span><span class="n">PromptInjectionGuard</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</span><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="nd">@ToolBox</span><span class="p">(</span><span class="n">BookingRepository</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userMessage</span><span class="p">);</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span>
-</code></pre></div>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s">            Today is {current_date}.</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s">            """</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nd">@InputGuardrails</span><span class="p">(</span><span class="n">PromptInjectionGuard</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nd">@ToolBox</span><span class="p">(</span><span class="n">BookingRepository</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">chat</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userMessage</span><span class="p">);</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="hll"><span class="p">}</span>
+</span></code></pre></div>
 <p>Basically, we only added the <code>@InputGuardrails(PromptInjectionGuard.class)</code> annotation to the <code>chat</code> method.</p>
 <p>When the application invokes the <code>chat</code> method, the <code>PromptInjectionGuard</code> guardrail will be executed first.
 If it fails, an exception is thrown and the offensive user message is not passed to <em>main</em> LLM.</p>

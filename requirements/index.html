@@ -846,13 +846,24 @@ You are not viewing the latest version.
 <p>If you are running this as part of an instructor-led workshop and have been provided a virtual machine, <a href="../rhel-setup/">click here</a> to learn about how to use it if you’d prefer it over using your own laptop.</p>
 </details>
 <h2 id="ai-model-requirements">AI Model Requirements<a class="headerlink" href="#ai-model-requirements" title="Permanent link"></a></h2>
-<p>This workshop is using the <a href="https://mistral.ai/news/announcing-mistral-7b">Mistral 7b</a> model hosted on <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai">OpenShift AI</a>.
+<p>This workshop is requires an OpenAI compatible LLM Model, like:</p>
+<ul>
+<li>Granite 3</li>
+<li>Mistral 7b</li>
+<li>Llama 3.1 (does not work with step 08: guardrails as the model does not support parallel tool call)</li>
+</ul>
+<p>This workshop is also using <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai">OpenShift AI</a> to serve the model.
 Your instructor will provide your with a URL to access the model.</p>
 <p>Once you have the URL, make sure you have set it as an environment variable:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MISTRAL_URL</span><span class="o">=</span>&lt;model<span class="w"> </span>url&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LLM_MODEL_URL</span><span class="o">=</span>&lt;model<span class="w"> </span>url&gt;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LLM_MODEL_NAME</span><span class="o">=</span>&lt;model<span class="w"> </span>name&gt;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LLM_API_KEY</span><span class="o">=</span>&lt;api<span class="w"> </span>key&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$Env:MISTRAL_URL</span><span class="p">=&lt;</span><span class="n">model</span> <span class="n">url</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$Env:LLM_MODEL_URL</span><span class="p">=&lt;</span><span class="n">model</span> <span class="n">url</span><span class="p">&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">$Env:LLM_MODEL_NAME</span><span class="p">=&lt;</span><span class="n">model</span> <span class="n">name</span><span class="p">&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">$Env:LLM_API_KEY</span><span class="p">=&lt;</span><span class="n">api</span> <span class="n">key</span><span class="p">&gt;</span>
 </code></pre></div>
+<p>Alternatively, these parameters can be hard-coded in the <code>src/main/resources/application.properties</code> file of each step.</p>
 <h2 id="good-to-know">Good to know<a class="headerlink" href="#good-to-know" title="Permanent link"></a></h2>
 <p>You can run a Quarkus application in <a href="https://quarkus.io/guides/maven-tooling#dev-mode" target="_blank"><em>dev mode</em></a> by running the following command in the project directory:</p>
 <h3 id="quarkus-dev-mode">Quarkus dev mode<a class="headerlink" href="#quarkus-dev-mode" title="Permanent link"></a></h3>
