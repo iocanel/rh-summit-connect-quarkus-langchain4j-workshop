@@ -1,9 +1,9 @@
 package dev.langchain4j.quarkus.workshop;
 
 import io.quarkiverse.langchain4j.RegisterAiService;
-import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
-@SessionScoped
+@ApplicationScoped
 @RegisterAiService
 public interface CustomerSupportAgent {
 
