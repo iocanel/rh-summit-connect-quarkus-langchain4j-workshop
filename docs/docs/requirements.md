@@ -15,18 +15,30 @@
 
 ## AI Model Requirements
 
-This workshop is using the [Mistral 7b](https://mistral.ai/news/announcing-mistral-7b) model hosted on [OpenShift AI](https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai).
+This workshop is requires an OpenAI compatible LLM Model, like:
+
+- Granite 3
+- Mistral 7b
+- Llama 3.1 (does not work with step 08: guardrails as the model does not support parallel tool call)
+
+This workshop is also using [OpenShift AI](https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai) to serve the model.
 Your instructor will provide your with a URL to access the model.
 
 Once you have the URL, make sure you have set it as an environment variable:
 
 ```bash
-export MISTRAL_URL=<model url>
+export LLM_MODEL_URL=<model url>
+export LLM_MODEL_NAME=<model name>
+export LLM_API_KEY=<api key>
 ```
 
 ```powershell
-$Env:MISTRAL_URL=<model url>
+$Env:LLM_MODEL_URL=<model url>
+$Env:LLM_MODEL_NAME=<model name>
+$Env:LLM_API_KEY=<api key>
 ```
+
+Alternatively, these parameters can be hard-coded in the `src/main/resources/application.properties` file of each step.
 
 ## Good to know
 
