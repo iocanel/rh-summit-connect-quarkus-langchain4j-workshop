@@ -1,5 +1,5 @@
-site_name: Quarkus LangChain4j Workshop
-repo_url: https://github.com/cescoffier/quarkus-langchain4j-workshop
+site_name: Craft intelligent application with Quarkus/LangChain4j on OpenShift/AI
+repo_url: https://github.com/iocanel/rh-summit-connect-quarkus-langchain4j-workshop
 edit_uri: edit/main/docs/
 docs_dir: docs
 
