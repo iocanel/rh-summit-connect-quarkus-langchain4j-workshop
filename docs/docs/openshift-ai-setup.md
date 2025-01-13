@@ -67,7 +67,7 @@ spec:
     - args:
         - --port=8080
         - --model=/mnt/models
-        - --served-model-name={{.Name}}
+        - --served-model-name=\{\{.Name\}\}
         - --distributed-executor-backend=mp
         - --enable-auto-tool-choice
         - --tool-call-parser=granite
@@ -110,7 +110,7 @@ spec:
     - args:
         - --port=8080
         - --model=/mnt/models
-        - --served-model-name={{.Name}}
+        - --served-model-name=\{\{.Name\}\}
         - --distributed-executor-backend=mp
         - --max-model-len=17856
         - --enable-auto-tool-choice
