@@ -1,7 +1,9 @@
-# Quarkus LangChain4j Workshop
+# Craft intelligent application with Quarkus/LangChain4j on OpenShift/AI
 
-Welcome to the Quarkus Lanchchain4j Workshop! 
+Welcome to the Craft intelligent application with Quarkus/LangChain4j on OpenShift/AI! 
 This workshop is designed to help you get started with AI-Infused applications using Quarkus and LangChain4j.
+It is based on https://cescoffier.github.io/quarkus-langchain4j-workshop/ but is adjusted so that it works with models served by OpenShift AI.
+
 You are going to learn about:
 
 - How to integrate LLMs (Language Models) in your Quarkus application

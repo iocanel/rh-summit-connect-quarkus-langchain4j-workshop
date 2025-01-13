@@ -19,11 +19,11 @@ This workshop is requires an OpenAI compatible LLM Model, like:
 
 - Granite 3
 - Mistral 7b
-- Llama 3.1 (does not work with step 08: guardrails as the model does not support parallel tool call)
 
 This workshop is also using [OpenShift AI](https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai) to serve the model.
-Your instructor will provide your with a URL to access the model.
+A brief guide on how OpenShift AI has been configured can be found [here](openshift-ai-setup.md). 
 
+You won't need to perform these steps yourself. Your instructor will provide your with a URL, Api Key and Model name to access the model.
 Once you have the URL, make sure you have set it as an environment variable:
 
 ```bash
@@ -80,28 +80,28 @@ Either use `git` or download the repository as a zip file.
 If you haven't already, clone the repository and checkout the `main` branch.
 
 ```shell
-git clone https://github.com/cescoffier/quarkus-langchain4j-workshop.git
+git clone https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop.git
 ```
 
 Then navigate to the directory:
 
 ```shell
-cd quarkus-langchain4j-workshop
+cd rh-summit-connect-quarkus-langchain4j-workshop
 ```
 
 #### Direct Download
 
-If you didn't use the `git` approach, you can download the repository as a zip file from the [GitHub repository](https://github.com/cescoffier/quarkus-langchain4j-workshop/archive/refs/heads/main.zip):
+If you didn't use the `git` approach, you can download the repository as a zip file from the [GitHub repository](https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop/archive/refs/heads/main.zip):
 
 ```shell
-curl -L -o workshop.zip https://github.com/cescoffier/quarkus-langchain4j-workshop/archive/refs/heads/main.zip
+curl -L -o workshop.zip https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop/archive/refs/heads/main.zip
 ```
 
 Then unzip the file and navigate to the directory:
 
 ```shell
 unzip workshop.zip
-cd quarkus-langchain4j-workshop-main
+cd rh-summit-connect-quarkus-langchain4j-workshop-main
 ```
 
 ### Warming the caches
