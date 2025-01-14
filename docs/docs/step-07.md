@@ -163,6 +163,10 @@ I would like to cancel the last one.
 
 Here are your current bookings: 1. Booking ID: 1 - From: 2025-07-10 - To: 2025-07-14 2. Booking ID: 2 - From: 2025-08-05 - To: 2025-08-12 If you need any further assistance, please let me know!
 
+
+**Note**: Some models may struggle to correctly apply the cancellation policy rules (e.g. correctly checking that the booking has a period of 4 days or more). In this case, you need to be a little more persistent, persuasive and put your prompt engineering skills to work.
+
+
 Alright, let's try now to cancel an invalid booking:
 
 ```text title="You"
