@@ -3,7 +3,7 @@
 To get started, make sure you use the `step-01` directory.
 
 This step is the starting point for the workshop.
-It's a simple Quarkus application that uses the [Quarkus LangChain4j](https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html){target="_blank"} extension to interact with OpenAI's GPT-4o model.
+It's a simple Quarkus application that uses the [Quarkus LangChain4j](https://docs.quarkiverse.io/quarkus-langchain4j/dev/index.html){target="_blank"} extension to interact with the model using the OpenAI API.
 It's a simple chatbot that we will extend in the subsequent steps.
 
 ## Running the application
