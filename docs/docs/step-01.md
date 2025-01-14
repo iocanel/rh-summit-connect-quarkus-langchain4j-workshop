@@ -163,11 +163,4 @@ There is a single method in this interface, `chat`, but you could name the metho
 It takes a user message as input (as it's the only parameter, we consider it to be the user message) and returns the response from the AI model.
 How this is done is abstracted away by Quarkus LangChain4j.
 
-!!! note "`SessionScoped`?"
-    Attentive readers might have noticed the `@SessionScoped` annotation.
-    This is a [CDI](https://jakarta.ee/specifications/cdi/) annotation which scopes the object to the session. In our case the session is the web socket.
-    The session starts when the user connects to the web socket and ends when the user disconnects.
-    This annotation indicates that the `CustomerSupportAgent` object is created when the session starts and destroyed when the session ends.
-    It influences the _memory_ of our chatbot, as it remembers the conversation that happened so far in this session.
-
 So far, so good! Let's move on to the [next step](./step-02.md).
