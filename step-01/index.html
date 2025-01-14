@@ -764,14 +764,6 @@ Thus, your application only interacts with the methods defined in the interface.
 <p>There is a single method in this interface, <code>chat</code>, but you could name the method whatever you wanted.
 It takes a user message as input (as it’s the only parameter, we consider it to be the user message) and returns the response from the AI model.
 How this is done is abstracted away by Quarkus LangChain4j.</p>
-<div class="admonition note">
-<p class="admonition-title"><code>SessionScoped</code>?</p>
-<p>Attentive readers might have noticed the <code>@SessionScoped</code> annotation.
-This is a <a href="https://jakarta.ee/specifications/cdi/">CDI</a> annotation which scopes the object to the session. In our case the session is the web socket.
-The session starts when the user connects to the web socket and ends when the user disconnects.
-This annotation indicates that the <code>CustomerSupportAgent</code> object is created when the session starts and destroyed when the session ends.
-It influences the <em>memory</em> of our chatbot, as it remembers the conversation that happened so far in this session.</p>
-</div>
 <p>So far, so good! Let’s move on to the <a href="../step-02/">next step</a>.</p></div>
 
 
