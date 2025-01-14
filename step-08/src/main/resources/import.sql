@@ -12,30 +12,30 @@ VALUES (5, 'Drifty', 'Skidmark');
 ALTER SEQUENCE customer_seq RESTART WITH 5;
 
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (1, 1, '2024-07-10', '2024-07-15');
+VALUES (1, 1, '2026-07-10', '2026-07-15');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (2, 1, '2024-08-05', '2024-08-12');
+VALUES (2, 1, '2026-08-05', '2026-08-12');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (3, 1, '2024-10-01', '2024-10-07');
+VALUES (3, 1, '2026-10-01', '2026-10-07');
 
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (4, 2, '2024-07-20', '2024-07-25');
+VALUES (4, 2, '2026-07-20', '2026-07-25');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (5, 2, '2024-11-10', '2024-11-15');
+VALUES (5, 2, '2026-11-10', '2026-11-15');
 
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (7, 3, '2024-06-15', '2024-06-20');
+VALUES (7, 3, '2026-06-15', '2026-06-20');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (8, 3, '2024-10-12', '2024-10-18');
+VALUES (8, 3, '2026-10-12', '2026-10-18');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (9, 3, '2024-12-03', '2024-12-09');
+VALUES (9, 3, '2026-12-03', '2026-12-09');
 
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (10, 4, '2024-07-01', '2024-07-06');
+VALUES (10, 4, '2026-07-01', '2026-07-06');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (11, 4, '2024-07-25', '2024-07-30');
+VALUES (11, 4, '2026-07-25', '2026-07-30');
 INSERT INTO booking (id, customer_id, dateFrom, dateTo)
-VALUES (12, 4, '2024-10-15', '2024-10-22');
+VALUES (12, 4, '2026-10-15', '2026-10-22');
 
 ALTER SEQUENCE booking_seq RESTART WITH 12;
 
