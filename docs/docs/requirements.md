@@ -80,7 +80,7 @@ Either use `git` or download the repository as a zip file.
 If you haven't already, clone the repository and checkout the `main` branch.
 
 ```shell
-git clone https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop.git
+git clone https://github.com/iocanel/rh-summit-connect-quarkus-langchain4j-workshop.git
 ```
 
 Then navigate to the directory:
@@ -94,7 +94,7 @@ cd rh-summit-connect-quarkus-langchain4j-workshop
 If you didn't use the `git` approach, you can download the repository as a zip file from the [GitHub repository](https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop/archive/refs/heads/main.zip):
 
 ```shell
-curl -L -o workshop.zip https://github.com/iocanel/rh-summit-connect-rh-summit-connect-quarkus-langchain4j-workshop/archive/refs/heads/main.zip
+curl -L -o workshop.zip https://github.com/iocanel/rh-summit-connect-quarkus-langchain4j-workshop/archive/refs/heads/main.zip
 ```
 
 Then unzip the file and navigate to the directory:
