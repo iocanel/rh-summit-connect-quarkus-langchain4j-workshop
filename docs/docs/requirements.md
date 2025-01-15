@@ -27,15 +27,15 @@ You won't need to perform these steps yourself. Your instructor will provide you
 Once you have the URL, make sure you have set it as an environment variable:
 
 ```bash
-export LLM_MODEL_URL=<model url>
-export LLM_MODEL_NAME=<model name>
-export LLM_API_KEY=<api key>
+export LLM_MODEL_NAME=granite-3-8b-instruct
+export LLM_MODEL_URL=https://granite-3-8b-instruct-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com/v1
+export LLM_API_KEY=2b0e97d30c3da28318a498ef3cc91f8c
 ```
 
 ```powershell
-$Env:LLM_MODEL_URL=<model url>
-$Env:LLM_MODEL_NAME=<model name>
-$Env:LLM_API_KEY=<api key>
+$Env:LLM_MODEL_NAME=granite-3-8b-instruct
+$Env:LLM_MODEL_URL=https://granite-3-8b-instruct-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com/v1
+$Env:LLM_API_KEY=2b0e97d30c3da28318a498ef3cc91f8c
 ```
 
 Alternatively, these parameters can be hard-coded in the `src/main/resources/application.properties` file of each step.
