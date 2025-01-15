@@ -3,20 +3,26 @@ package dev.langchain4j.quarkus.workshop;
 import static dev.langchain4j.quarkus.workshop.Exceptions.*;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
-
+import io.quarkus.logging.Log;
 import dev.langchain4j.agent.tool.Tool;
 
 @ApplicationScoped
 public class BookingRepository implements PanacheRepository<Booking> {
 
+  @Tool("Get how many days are between two dates")
+  public long dateDiff(String date1, String date2) {
+      Log.info("Calculating date difference");
+      return  ChronoUnit.DAYS.between(LocalDate.parse(date1), LocalDate.parse(date2));
+  }
 
-    @Tool("Cancel a booking and return cancellation status")
+    @Tool("Cancel a booking and return true if successful")
     @Transactional
     public boolean cancelBooking(long bookingId, String customerFirstName, String customerLastName) {
         var booking = getBookingDetails(bookingId, customerFirstName, customerLastName);
@@ -29,6 +35,7 @@ public class BookingRepository implements PanacheRepository<Booking> {
             throw new BookingCannotBeCancelledException(bookingId, "booking period is less than four days");
         }
         delete(booking);
+        Log.info("Booking " + bookingId + "  cancelled successfully");
         return true;
     }
 
